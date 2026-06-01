@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="gopigo3_maze_world">
+
+    <!-- Physics -->
+    <physics name="default_physics" default="true" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <!-- Lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Maze wall material notes:
+         Each wall is a static box.
+         pose: x y z roll pitch yaw
+         size: length thickness height
+    -->
+
+    <!-- Outer boundary walls -->
+    <model name="wall_outer_bottom">
+      <static>true</static>
+      <pose>0 -3 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>8 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>8 0.12 0.5</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_outer_top">
+      <static>true</static>
+      <pose>0 3 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>8 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>8 0.12 0.5</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_outer_left">
+      <static>true</static>
+      <pose>-4 0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 6 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 6 0.5</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_outer_right">
+      <static>true</static>
+      <pose>4 0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 6 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 6 0.5</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Internal maze walls -->
+    <model name="wall_1">
+      <static>true</static>
+      <pose>-2.7 -1.6 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2.0 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2.0 0.12 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_2">
+      <static>true</static>
+      <pose>-1.7 -0.5 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 2.2 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 2.2 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_3">
+      <static>true</static>
+      <pose>-2.7 1.0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2.0 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2.0 0.12 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_4">
+      <static>true</static>
+      <pose>-0.5 1.8 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 2.2 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 2.2 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_5">
+      <static>true</static>
+      <pose>0.8 0.6 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2.6 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2.6 0.12 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_6">
+      <static>true</static>
+      <pose>2.1 -1.1 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 2.5 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 2.5 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_7">
+      <static>true</static>
+      <pose>2.7 1.6 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1.6 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1.6 0.12 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_8">
+      <static>true</static>
+      <pose>0.6 -2.0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 1.8 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 1.8 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="wall_9">
+      <static>true</static>
+      <pose>1.2 2.3 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1.4 0.12 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1.4 0.12 0.5</size></box></geometry><material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Optional start marker, not collidable -->
+    <model name="start_area_marker">
+      <static>true</static>
+      <pose>-3.3 -2.4 0.01 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.25</radius><length>0.01</length></cylinder></geometry>
+          <material><ambient>0 1 0 0.6</ambient><diffuse>0 1 0 0.6</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

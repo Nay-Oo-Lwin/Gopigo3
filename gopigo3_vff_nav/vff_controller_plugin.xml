@@ -1,0 +1,8 @@
+<library path="vff_controller_plugin">
+  <class
+    name="vff_controller/VFFController"
+    type="vff_controller::VFFController"
+    base_class_type="nav2_core::Controller">
+    <description>Virtual Force Field controller plugin for Nav2</description>
+  </class>
+</library>
